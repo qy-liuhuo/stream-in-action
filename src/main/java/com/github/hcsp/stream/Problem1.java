@@ -20,18 +20,24 @@ public class Problem1 {
     public static int countUsers(List<User> users) {
 
         return (int) users.stream()
-                .filter( user -> {return user.age >= 60 && user.name.length() == 2;})
+                .filter(user -> {
+                    return user.age >= 60 && user.name.length() == 2;
+                })
                 .count();
     }
 
     // 编写一个方法，筛选出年龄大于等于60的用户，然后将他们按照年龄从大到小排序，将他们的名字放在一个LinkedList中返回
     public static LinkedList<String> collectNames(List<User> users) {
         return users.stream()
-                .filter(user -> {return user.age >= 60;})
-                .sorted((User a, User b) ->{
+                .filter(user -> {
+                    return user.age >= 60;
+                })
+                .sorted((User a, User b) -> {
                     return b.age - a.age;
                 })
-                .map(user -> {return user.name;})
+                .map(user -> {
+                    return user.name;
+                })
                 .collect(Collectors.toCollection(LinkedList::new));
     }
 

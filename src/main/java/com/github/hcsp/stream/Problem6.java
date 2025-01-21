@@ -16,8 +16,12 @@ public class Problem6 {
 //                .filter(str -> {return str.length() == 1;})
 //                .collect(Collectors.toList()));
         return words.stream()
-            .filter(str -> {return str.length() == 1;})
-            .reduce("", (String temp, String str) ->{return temp+ "," + str ;}).substring(1);
+                .filter(str -> {
+                    return str.length() == 1;
+                })
+                .reduce("", (String temp, String str) -> {
+                    return temp + "," + str;
+                }).substring(1);
     }
 
     public static void main(String[] args) {
