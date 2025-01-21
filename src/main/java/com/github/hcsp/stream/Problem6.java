@@ -3,13 +3,21 @@ package com.github.hcsp.stream;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class Problem6 {
     // 使用流的方法，把所有长度等于1的单词挑出来，然后用逗号连接起来
     // 例如，传入参数words=['a','bb','ccc','d','e']
     // 返回字符串a,d,e
     public static String filterThenConcat(Set<String> words) {
-        return null;
+
+//        return String.join(",",words.stream()
+//                .filter(str -> {return str.length() == 1;})
+//                .collect(Collectors.toList()));
+        return words.stream()
+            .filter(str -> {return str.length() == 1;})
+            .reduce("", (String temp, String str) ->{return temp+ "," + str ;}).substring(1);
     }
 
     public static void main(String[] args) {
